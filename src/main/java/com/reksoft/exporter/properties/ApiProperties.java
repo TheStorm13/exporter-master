@@ -7,7 +7,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
 
 
-//todo: Что здесь происходит? написать доку
 @Getter
 @Setter
 @Validated
