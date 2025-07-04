@@ -8,7 +8,5 @@ public class TournamentParticipantInfoDto {
     private Integer standing;
     private Integer place;
     private Integer teamId;
-    private Integer tournamentId;
-    private TeamDto team;
-    private TournamentDto tournament;
+    private String teamName;
 }
