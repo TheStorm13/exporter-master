@@ -28,6 +28,7 @@ public class PlayerCsvReportService {
             for (Player player : players) {
                 String[] line = {
                         String.valueOf(player.getId()),
+                        player.getCombinedName(),
                         player.getNickName(),
                         player.getCountry() != null ? String.valueOf(player.getCountry()) : "",
                         player.getTeamName(),
