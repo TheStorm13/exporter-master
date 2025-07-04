@@ -1,5 +1,6 @@
 package com.reksoft.exporter.service.player;
 
+import com.reksoft.exporter.mapper.PlayerMapper;
 import com.reksoft.exporter.model.Player;
 import com.reksoft.exporter.repository.PlayerApiRepository;
 import com.reksoft.exporter.repository.dto.PlayerViewDto;
@@ -15,21 +16,16 @@ import java.util.List;
 public class PlayerServiceImpl implements PlayerService {
 
     private final PlayerApiRepository playerApiRepository;
+    private final PlayerMapper playerMapper;
+    private final PlayerProcessor playerProcessor;
 
     @Override
     public List<Player> getPlayers() {
         List<PlayerViewDto> playerViewDtos = playerApiRepository.getPlayers();
-        return playerViewDtos.stream().map(this::map).toList();
-    }
 
-    //todo: вынести в нормальный маппер
-    private Player map(PlayerViewDto playerViewDto) {
-        Player player = new Player();
-        player.setId(playerViewDto.getId());
-        player.setCountry(player.getCountry());
-        player.setNickname(playerViewDto.getCombinedName());
-        player.setFullName(playerViewDto.getCombinedName());
-        player.setTeamName(playerViewDto.getTeamName());
-        return player;
+        return playerViewDtos.stream()
+                .map(playerMapper::toEntity)
+                .map(playerProcessor::addFullName)
+                .toList();
     }
 }
