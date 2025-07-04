@@ -14,8 +14,8 @@ public class PlayerProcessorImpl implements PlayerProcessor {
     }
 
     private String buildFullName(String combinedName, String nickname) {
-        if (combinedName == null ) {
-            return  nickname;
+        if (combinedName == null) {
+            return nickname;
         }
 
         String[] names = combinedName.split(" ");

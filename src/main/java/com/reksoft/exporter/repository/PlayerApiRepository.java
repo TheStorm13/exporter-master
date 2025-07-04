@@ -38,6 +38,7 @@ public class PlayerApiRepository implements PlayerRepository {
         return response.getBody();
     }
 
+
     public List<PlayerViewDto> getFilteredPlayers(String filter) {
 
         String url = UriComponentsBuilder.fromHttpUrl(apiProperties.getBaseUrl() + FILTERED_PLAYERS_ENDPOINT)

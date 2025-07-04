@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.io.IOException;
-//todo: Выделить в отдельный пакет error
+
 @Slf4j
 @ControllerAdvice
 public class ErrorHandler {
